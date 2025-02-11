@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import DatePicker from "react-datepicker"; // Import DatePicker for due dates
+// import DatePicker from "react-datepicker"; // Import DatePicker for due dates
 import "react-datepicker/dist/react-datepicker.css"; // Import DatePicker styles
 import "./TodoList.css";
 
