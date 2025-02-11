@@ -14,10 +14,10 @@ body {
 
 /* To-Do List Container */
 .todo-container {
-  max-width: 450px;
+  /* max-width: 500px; */
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  border-radius: 12px;
+  border-radius: 15px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   padding: 20px;
   text-align: center;
@@ -59,14 +59,14 @@ h1 {
 /* Input Container */
 .input-container {
   display: flex;
-  gap: 10px;
+  gap:10px;
   margin-bottom: 15px;
 }
 
 .input-container input,
 .input-container button {
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 20px;
   border: 1px solid #ddd;
   font-size: 16px;
   outline: none;
@@ -168,6 +168,6 @@ ul {
 
   .input-container input,
   .input-container button {
-    width: 100%;
+    width: 91%;
   }
 }
