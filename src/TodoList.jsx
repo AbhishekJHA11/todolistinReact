@@ -52,9 +52,23 @@ const TodoList = () => {
     setTodos(updatedTodos);
   };
 
+  // Calculate Progress
+  const completedTasks = todos.filter((todo) => todo.completed).length;
+  const totalTasks = todos.length;
+  const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+
   return (
     <div className="todo-container">
       <h1>To-Do List</h1>
+
+      {/* Progress Tracker */}
+      <div className="progress-container">
+        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+      </div>
+      <p className="progress-text">
+        {completedTasks} / {totalTasks} tasks completed
+      </p>
+
       <div className="input-container">
         <input
           type="text"

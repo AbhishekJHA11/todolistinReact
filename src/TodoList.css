@@ -1,203 +1,173 @@
-/* TodoList.css */
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-@import "react-datepicker/dist/react-datepicker.css";
-
-/* General Styles */
+/* Global Styles */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
 }
 
-/* Container for the To-Do List */
+/* To-Do List Container */
 .todo-container {
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 100%;
-  max-width: 550px;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Heading */
 h1 {
-  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
   color: #333;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 15px;
 }
 
-/* Input and Button Container */
-/* Updated Input Container */
+/* Progress Tracker */
+.progress-container {
+  width: 100%;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: width 0.4s ease-in-out;
+  border-radius: 6px;
+}
+
+.progress-text {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Input Container */
 .input-container {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping if needed */
   gap: 10px;
-  margin-bottom: 1.5rem;
-  align-items: center; /* Keeps items aligned properly */
+  margin-bottom: 15px;
 }
 
-/* Ensure input fields don't overflow */
 .input-container input,
-.input-container .react-datepicker-wrapper {
-  flex: 1;
-  min-width: 145px;
-}
-
-/* Limit DatePicker width */
-.react-datepicker-wrapper {
-  width: 120px; /* Adjust width to fit inside */
-}
-
-/* Input Field */
-input {
-  flex: 1;
-  padding: 10px;
-  border: 2px solid #ddd;
+.input-container button {
+  padding: 12px;
   border-radius: 8px;
-  font-size: 1rem;
+  border: 1px solid #ddd;
+  font-size: 16px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
-input:focus {
-  border-color: #007bff;
+.input-container input {
+  flex: 1;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
 }
 
-/* Add Button */
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+.input-container input:focus {
+  border-color: #0072ff;
+  box-shadow: 0px 0px 8px rgba(0, 114, 255, 0.4);
+}
+
+.input-container button {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none;
 }
 
-button:hover {
-  background-color: #0056b3;
+.input-container button:hover {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
 }
 
-/* To-Do List */
+/* Task List */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Individual To-Do Item */
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.3s ease;
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-li:hover {
-  background-color: #f9f9f9;
-}
-
-/* Task Text */
-li span {
-  flex: 1;
-  margin-left: 10px;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-/* Completed Task */
-li span.completed {
-  text-decoration: line-through;
-  color: #888;
-}
-
-/* Delete Button */
-li button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-li button:hover {
-  background-color: #cc0000;
-}
-
-/* Style for overdue tasks */
-.overdue {
-  color: red;
-  font-weight: bold;
-}
-
-/* Style for completed tasks */
-.completed-task {
-  text-decoration: line-through;
-  color: gray;
-}
-
-/* Style for due date text */
-.due-date {
-  font-size: 0.9rem;
-  color: #007bff;
-  font-weight: bold;
-  margin-left: 5px;
-}
-
-/* Datepicker container to prevent overflow */
-.datepicker-container {
-  flex: 1;
-  /* min-width: 120px; */
-}
-
-/* Fix DatePicker alignment */
-.react-datepicker-wrapper {
-  width: 100%;
-}
-
-/* Draggable Items */
+/* Individual Task Item */
 .draggable-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border: 1px solid #ddd;
   background: #fff;
-  margin-bottom: 8px;
+  padding: 12px;
   border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   cursor: grab;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .draggable-item:hover {
-  background: #f9f9f9;
+  background: #f1f1f1;
+  transform: scale(1.02);
 }
 
-/* Dragging Effect */
-.draggable-item:active {
-  cursor: grabbing;
-  background: #e0e0e0;
+/* Completed Task */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.7;
 }
 
-/* Due Date Styling */
+/* Due Date */
 .due-date {
-  font-size: 0.9rem;
-  color: #007bff;
-  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #0072ff;
+  margin-left: 5px;
+}
+
+/* Delete Button */
+.draggable-item button {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.draggable-item button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .todo-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input,
+  .input-container button {
+    width: 100%;
+  }
 }
